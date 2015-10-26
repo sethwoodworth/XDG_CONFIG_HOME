@@ -1,0 +1,9 @@
+[submodule "awesome/vendor/radical"]
+	path = awesome/vendor/radical
+	url = https://github.com/Elv13/radical.git
+[submodule "awesome/radical"]
+	path = awesome/radical
+	url = https://github.com/Elv13/radical.git
+[submodule "tmux/vendor/jimeh-tmux-themepack"]
+	path = tmux/vendor/jimeh-tmux-themepack
+	url = https://github.com/jimeh/tmux-themepack.git
