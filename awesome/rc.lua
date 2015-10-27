@@ -44,7 +44,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init(awful.util.getdir("config") .. "/themes/zenburn/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/awesomelcars/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
@@ -183,9 +183,39 @@ for s = 1, screen.count() do
     -- vicious.register(batwidget, vicious.widgets.bat("BAT0"), "$1% $2% $3%")
     -- Register widget
     -- vicious.register(batwidget, vicious.widgets.bat, '<span foreground="#cac6ce" background="#FD971F"></span><span foreground="#585656" weight="bold"> 🔋 $1$2% </span>', 20, "BAT1")
-    vicious.register(batwidget, vicious.widgets.bat, string.format("<span foreground='%s' background='%s'> 🔋: $1$2%%  </span>", theme.color_offblack, theme.color_darkpurp), 20, "BAT0")
+    vicious.register(batwidget,
+                      vicious.widgets.bat,
+                      string.format("<span foreground='%s' background='%s'>🔋$1$2%%</span>",
+                          theme.color_lightpurp,
+                          theme.color_offblack),
+                      20, "BAT0")
 
 
+    volume_master = blingbling.volume({
+      height=14, 
+      width=50, 
+      bar=true,
+      graph_color=theme.color_orange,
+    })
+    volume_master:update_master()
+    volume_master:set_master_control()
+
+    -- netwidget = blingbling.net({interface = "wlp3s0b1", show_text = true})
+    -- netwidget:set_ippopup()
+    netwidget = wibox.widget.textbox()
+    vicious.register(netwidget,
+                      vicious.widgets.wifi,
+                      string.format("<span foreground='%s' background='%s'>${ssid} r${rate} l${link} ${linp}%% ${sign}</span>",
+                        theme.color_lightpurp,
+                        theme.color_offblack),
+                      20,
+                      'wlp3s0b1')
+
+
+    -- round_img = wibox.widget.imagebox()
+    -- local img = image(nil, 30, 30)
+    -- img:draw_circle(0, 0, 30, 30, false, theme.color_darkpurp)
+    -- round_img.set_image(img)
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -197,9 +227,11 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     -- if s == 1 then right_layout:add(wibox.widget.systray()) end
     -- right_layout:add(cpuwidget)
+    right_layout:add(netwidget)
     right_layout:add(batwidget)
     -- right_layout:add(separator)
     -- right_layout:add(mempwidget)
+    right_layout:add(volume_master)
     right_layout:add(datewidget)
     right_layout:add(mylayoutbox[s])
 
