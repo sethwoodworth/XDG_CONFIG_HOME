@@ -14,9 +14,7 @@ local menubar = require("menubar")
 local lcars_taglist = require("taglist")
 local minitray = require("minitray")
 
--- Powerline
-package.path = package.path .. ';/usr/lib/python3.4/site-packages/powerline/bindings/awesome/?.lua'
-require('powerline')
+local blingbling = require("blingbling")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
