@@ -14,8 +14,6 @@ local menubar = require("menubar")
 local lcars_taglist = require("taglist")
 local minitray = require("minitray")
 
-local blingbling = require("blingbling")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -70,9 +68,9 @@ local layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.floating,
   }
--- ░▒▓
+-- ░▒▓ ▦▦▦▦▦▦▦▦▦
 tags = {
-  names = { "◖01 SYS◗", "◖02 CONSOLE◗", "◖03 WWW◗", "◖04 ALT◗", "◖05 TALK◗" }
+  names = { "◖01 SYS◗", "◖02 CONSOLE◗", "◖▲ WWW◗", "◖■ 🎜 ◗", "◖05 𝄠◗" }
 }
 
 for s = 1, screen.count() do
@@ -150,6 +148,63 @@ mytasklist.buttons = awful.util.table.join(
                                               awful.client.focus.byidx(-1)
                                               if client.focus then client.focus:raise() end
                                           end))
+-- widgets
+-- datewidget
+datewidget = wibox.widget.textbox()
+vicious.register(datewidget, vicious.widgets.date, "%b %d, %R", 60)
+
+memwidget = wibox.widget.textbox()
+vicious.register(memwidget, vicious.widgets.mem, "$1% ($2mb/$3MB)", 13)
+
+-- battery widget
+batwidget = wibox.widget.textbox()
+vicious.register(batwidget,
+                  vicious.widgets.bat,
+                  string.format("<span foreground='%s' background='%s'>🔋$1$2%%</span>",
+                      theme.color_lightpurp,
+                      theme.color_offblack),
+                  20, "BAT0")
+
+weather = wibox.widget.textbox()
+vicious.register(weather, vicious.widgets.weather, "Weather: ${city}. Sky: ${sky}. Temp: ${tempc}c Humid: ${humid}%. Wind: ${windkmh} KM/h", 10, "E5351")
+
+-- Upgrades widget
+pacwidget = wibox.widget.textbox()
+vicious.register(pacwidget, vicious.widgets.pkg, function(widget, args)
+   -- if args[1] > 0 then
+   --   pacicon:set_image(beautiful.widget_pacnew)
+   -- else
+   -- pacicon:set_image(beautiful.widget_pac)
+   -- end
+
+  return args[1]
+  end, 1801, "Arch S") -- Arch S for ignorepkg
+
+-- {{{ VOLUME
+-- -- Cache
+-- vicious.cache(vicious.widgets.volume)
+-- Volume %
+volpct = wibox.widget.textbox()
+vicious.register(volpct, vicious.widgets.volume, "$1%", 3, "Master")
+-- Buttons
+volpct:buttons(awful.util.table.join(
+     awful.button({ }, 1,
+     function() awful.util.spawn_with_shell("amixer -q set Master toggle") end),
+     awful.button({ }, 4,
+     function() awful.util.spawn_with_shell("amixer -q set Master 3+% unmute") end),
+     awful.button({ }, 5,
+     function() awful.util.spawn_with_shell("amixer -q set Master 3-% unmute") end)
+            ))
+ -- End Volume }}}
+
+netwidget = wibox.widget.textbox()
+vicious.register(netwidget,
+                  vicious.widgets.wifi,
+                  string.format("<span foreground='%s' background='%s'>${ssid} r${rate} l${link} ${linp}%% ${sign}</span>",
+                    theme.color_lightpurp,
+                    theme.color_offblack),
+                  20,
+                  'wlp3s0b1')
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
@@ -170,52 +225,6 @@ for s = 1, screen.count() do
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
-    -- Create the widgets
-    -- datewidget
-    datewidget = wibox.widget.textbox()
-    vicious.register(datewidget, vicious.widgets.date, "%b %d, %R", 60)
-
-    memwidget = wibox.widget.textbox()
-    vicious.register(memwidget, vicious.widgets.mem, "$1% ($2mb/$3MB)", 13)
-
-    -- battery widget
-    batwidget = wibox.widget.textbox()
-    -- vicious.register(batwidget, vicious.widgets.bat("BAT0"), "$1% $2% $3%")
-    -- Register widget
-    -- vicious.register(batwidget, vicious.widgets.bat, '<span foreground="#cac6ce" background="#FD971F"></span><span foreground="#585656" weight="bold"> 🔋 $1$2% </span>', 20, "BAT1")
-    vicious.register(batwidget,
-                      vicious.widgets.bat,
-                      string.format("<span foreground='%s' background='%s'>🔋$1$2%%</span>",
-                          theme.color_lightpurp,
-                          theme.color_offblack),
-                      20, "BAT0")
-
-
-    volume_master = blingbling.volume({
-      height=14, 
-      width=50, 
-      bar=true,
-      graph_color=theme.color_orange,
-    })
-    volume_master:update_master()
-    volume_master:set_master_control()
-
-    -- netwidget = blingbling.net({interface = "wlp3s0b1", show_text = true})
-    -- netwidget:set_ippopup()
-    netwidget = wibox.widget.textbox()
-    vicious.register(netwidget,
-                      vicious.widgets.wifi,
-                      string.format("<span foreground='%s' background='%s'>${ssid} r${rate} l${link} ${linp}%% ${sign}</span>",
-                        theme.color_lightpurp,
-                        theme.color_offblack),
-                      20,
-                      'wlp3s0b1')
-
-
-    -- round_img = wibox.widget.imagebox()
-    -- local img = image(nil, 30, 30)
-    -- img:draw_circle(0, 0, 30, 30, false, theme.color_darkpurp)
-    -- round_img.set_image(img)
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -227,11 +236,12 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     -- if s == 1 then right_layout:add(wibox.widget.systray()) end
     -- right_layout:add(cpuwidget)
+    right_layout:add(volpct)
     right_layout:add(netwidget)
     right_layout:add(batwidget)
     -- right_layout:add(separator)
     -- right_layout:add(mempwidget)
-    right_layout:add(volume_master)
+    -- right_layout:add(volume_master)
     right_layout:add(datewidget)
     right_layout:add(mylayoutbox[s])
 
@@ -539,3 +549,22 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- function run_once(prg,arg_string,pname,screen)
+--   if not prg then
+--     do return nil end
+--   end
+
+--   if not pname then
+--    pname = prg
+--   end
+
+  -- if not arg_string then
+  --   awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
+  -- else
+  --   awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. " ".. arg_string .."' || (" .. prg .. " " .. arg_string .. ")",screen)
+  -- end
+-- end
+
+-- run_once("firefox",nil,nil,3)
+-- run_once("python Gajim.py",nil,nil,5)
