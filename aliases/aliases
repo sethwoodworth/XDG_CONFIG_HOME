@@ -1,7 +1,9 @@
-source ~/.config/aliases/python2.aliases
-source ~/.config/aliases/ls.aliases
-source ~/.config/aliases/vagrant.aliases
-source ~/.config/aliases/git.aliases
-source ~/.config/aliases/pacman.sh
-source ~/.config/aliases/general.sh
-source ~/.config/aliases/vim.sh
+#!/bin/bash
+source ${XDG_CONFIG_HOME}/aliases/python2.aliases
+source ${XDG_CONFIG_HOME}/aliases/ls.aliases
+source ${XDG_CONFIG_HOME}/aliases/vagrant.aliases
+source ${XDG_CONFIG_HOME}/aliases/git.aliases
+# source ~${XDG_CONFIG_HOME}/aliases/pacman.sh
+source ${XDG_CONFIG_HOME}/aliases/apt.sh
+source ${XDG_CONFIG_HOME}/aliases/general.sh
+source ${XDG_CONFIG_HOME}/aliases/vim.sh
