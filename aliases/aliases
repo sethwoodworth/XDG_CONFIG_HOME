@@ -7,3 +7,4 @@ source ${XDG_CONFIG_HOME}/aliases/git.aliases
 source ${XDG_CONFIG_HOME}/aliases/apt.sh
 source ${XDG_CONFIG_HOME}/aliases/general.sh
 source ${XDG_CONFIG_HOME}/aliases/vim.sh
+source ${XDG_CONFIG_HOME}/aliases/ruby.sh
