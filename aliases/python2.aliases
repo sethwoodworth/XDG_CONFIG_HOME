@@ -9,3 +9,6 @@ alias vs="source venv/bin/activate"
 # install requirements via pip
 # TODO: load virtualenv if not there
 alias loadreq="pip install -r requirements.txt"
+
+# Run nosetests and quit on the first failure
+alias nx="nosetests -x"
