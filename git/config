@@ -1,0 +1,14 @@
+[user]
+  name = Seth Woodworth
+  email = seth@sethish.com
+  editor = vim
+[push]
+  default = current
+[apply]
+  whitespace = fix
+[core]
+  excludesfile = /home/seth/.config/git/gitignore
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
