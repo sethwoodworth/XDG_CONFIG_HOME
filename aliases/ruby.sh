@@ -1,4 +1,5 @@
-alias bers='bundle exec rails s'
+alias beff='bundle exec rspec --fail-fast'
+alias bep='bundle exec pry'
 alias berc='bundle exec rails c'
 alias berr='bundle exec rspec'
-alias bep='bundle exec pry'
+alias bers='bundle exec rails s'
