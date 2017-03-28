@@ -1,3 +1,4 @@
+alias be='bundle exec'
 alias beff='bundle exec rspec --fail-fast'
 alias bep='bundle exec pry'
 alias berc='bundle exec rails c'
