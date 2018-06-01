@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+alias ss=snowsql --config ${XDG_CONFIG_HOME}/snowsql/
+alias site=mycli --login-path dbslave

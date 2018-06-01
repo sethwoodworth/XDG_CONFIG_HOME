@@ -1,1 +1,5 @@
+alias pr='pipenv run'
+alias pri='pipenv run ipython'
+alias prpt='pipenv run ptpython'
 alias prp='pipenv run python'
+alias prt='pipenv run pytest -sv'

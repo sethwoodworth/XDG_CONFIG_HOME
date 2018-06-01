@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# source ~${XDG_CONFIG_HOME}/aliases/pacman.aliases
 source ${XDG_CONFIG_HOME}/aliases/apt.aliases
+source ${XDG_CONFIG_HOME}/aliases/db.aliases
 source ${XDG_CONFIG_HOME}/aliases/docker.aliases
 source ${XDG_CONFIG_HOME}/aliases/general.aliases
 source ${XDG_CONFIG_HOME}/aliases/git.aliases
 source ${XDG_CONFIG_HOME}/aliases/ls.aliases
 source ${XDG_CONFIG_HOME}/aliases/python2.aliases
+source ${XDG_CONFIG_HOME}/aliases/python3.aliases
 source ${XDG_CONFIG_HOME}/aliases/ruby.aliases
 source ${XDG_CONFIG_HOME}/aliases/vagrant.aliases
 source ${XDG_CONFIG_HOME}/aliases/vim.aliases
