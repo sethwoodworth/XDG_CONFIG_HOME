@@ -1,10 +1,21 @@
-alias gs='git status'
-alias gsu='git status -u'  # ignore unadded files
 alias ga='git add'
-alias gcm='git commit -m'
 alias gc='git commit'
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias gf='git fetch'
 alias gpf='git push --force-with-lease'
 alias griom='git rebase -i origin/master'
+alias gs='git status'
+alias gsu='git status -u'  # ignore unadded files
+
+gbc(){
+  if [ $# -eq 0 ]
+    then
+      echo "No branch name supplied"
+    else
+      git fetch
+      git checkout -B "$1" origin/master
+      echo "New branch created from $(git show-ref --head .)"
+  fi
+}
