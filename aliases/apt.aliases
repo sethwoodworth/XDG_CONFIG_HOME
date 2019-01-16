@@ -1,2 +1,5 @@
 alias install='sudo apt install'
 alias search='apt search'
+whatprovides(){
+  echo "$(dpkg -S $($1))"
+}
