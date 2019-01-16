@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+alias ss=snowsql --config ${XDG_CONFIG_HOME}/snowsql/
+alias sso='snowsql -o output_file=out.csv -o output_format=csv -q '
+alias ssq='snowsql  -o output_format=csv -q '

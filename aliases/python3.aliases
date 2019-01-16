@@ -3,3 +3,11 @@ alias pri='pipenv run ipython'
 alias prpt='pipenv run ptpython'
 alias prp='pipenv run python'
 alias prt='pipenv run pytest -sv'
+
+alias ev='source venv/bin/activate'
+alias deev='deactivate'
+
+alias dr='dotenv run'
+alias dri='dotenv run ipython -i'
+alias drp='dotenv run python'
+alias drip='dotenv run python -m ipdb'

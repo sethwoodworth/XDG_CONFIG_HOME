@@ -8,5 +8,7 @@ source ${XDG_CONFIG_HOME}/aliases/ls.aliases
 source ${XDG_CONFIG_HOME}/aliases/python2.aliases
 source ${XDG_CONFIG_HOME}/aliases/python3.aliases
 source ${XDG_CONFIG_HOME}/aliases/ruby.aliases
+source ${XDG_CONFIG_HOME}/aliases/snowflake.aliases
 source ${XDG_CONFIG_HOME}/aliases/vagrant.aliases
 source ${XDG_CONFIG_HOME}/aliases/vim.aliases
+source ${XDG_CONFIG_HOME}/aliases/airflow.aliases
