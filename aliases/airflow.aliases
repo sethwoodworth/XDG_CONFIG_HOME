@@ -1,0 +1,4 @@
+alias pra='pipenv run airflow'
+alias pras='pipenv run airflow scheduler'
+alias praw='pipenv run airflow webserver'
+alias pranuke='pipenv run airflow resetdb -y'
