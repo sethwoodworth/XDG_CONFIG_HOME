@@ -9,9 +9,6 @@
 [core]
   excludesfile = /home/seth/.config/git/gitignore
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
-[merge]
-	tool = vimdiff
-	conflictstyle = diff3
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
