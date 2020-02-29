@@ -4,3 +4,7 @@
 in-project = true
 
 [repositories]
+
+[virtualenvs]
+in-project = true
+path = "venv"
