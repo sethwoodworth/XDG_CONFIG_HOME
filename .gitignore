@@ -1,1 +1,3 @@
 zsh/zshrc.d/*
+auth.toml
+*
