@@ -12,3 +12,9 @@ alias drtx='dotenv -f .env-test run pytest -svvx'
 
 # pip aliases
 alias pirr='pip install -r requirements.txt'
+
+# poetry aliases
+alias por='poetry run '
+alias pori='poetry run ipython '
+alias porpi'poetry run python3'
+alias porpi='poetry run pip'
