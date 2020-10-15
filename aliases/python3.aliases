@@ -1,4 +1,7 @@
 alias vs="source venv/bin/activate"
+# TODO: make shell function for selecting `venv` or `.venv`
+alias sv="source .venv/bin/activate"
+alias se="source .env"
 alias pmvv='python -m venv venv'
 alias deev='deactivate'
 

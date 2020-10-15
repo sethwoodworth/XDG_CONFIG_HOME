@@ -1,0 +1,3 @@
+alias drm='dbt run -m '
+alias dcm='dbt compile -m '
+alias ddrm='dbt -d run -m '
