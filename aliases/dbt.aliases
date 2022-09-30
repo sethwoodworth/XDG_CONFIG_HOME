@@ -1,3 +1,8 @@
-alias drm='dbt run -m '
-alias dcm='dbt compile -m '
-alias ddrm='dbt -d run -m '
+# TODO: maybe make this conditional, or _only_ the dbt in a certain project?
+alias d='dbt'
+alias 'd l'='dbt list'
+alias drm='dbt run -s '
+alias dcm='dbt compile -s '
+alias ddrm='dbt -d run -s '
+alias sff='sqlfluff fix '
+alias sfl='sqlfluff lint '

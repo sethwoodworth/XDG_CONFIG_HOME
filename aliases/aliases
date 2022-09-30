@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source ${XDG_CONFIG_HOME}/aliases/apt.aliases
 source ${XDG_CONFIG_HOME}/aliases/aws.aliases
-source ${XDG_CONFIG_HOME}/aliases/db.aliases
+source ${XDG_CONFIG_HOME}/aliases/dbt.aliases
 # source ${XDG_CONFIG_HOME}/aliases/docker.aliases
 source ${XDG_CONFIG_HOME}/aliases/general.aliases
 source ${XDG_CONFIG_HOME}/aliases/git.aliases
