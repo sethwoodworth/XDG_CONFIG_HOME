@@ -1,2 +1,4 @@
 alias t='terraform'
 alias tp='terraform plan'
+alias asl='aws s3 ls'
+alias aslr='aws s3 ls --recursive'

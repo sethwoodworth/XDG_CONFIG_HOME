@@ -3,5 +3,5 @@ alias dockercleanc="printf 'Not actually going to run this for you\n' && printf 
 alias dockercleani="printf 'Not actually going to run this for you\n' && printf 'docker rmi $(docker images -q -f dangling=true)'"
 alias dockerclean='dockercleanc || true && dockercleani'
 
-alias doc='docker'
-alias docc='docker-compose'
+alias dih='docker images | head'
+alias drit='docker run --rm -it'

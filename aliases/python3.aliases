@@ -5,17 +5,20 @@ alias se="source .env"
 alias pmvv='python -m venv venv'
 alias deev='deactivate'
 
-alias dr='dotenv run'
-alias dri='dotenv run ipython -i'
-alias drp='dotenv run python'
-alias drip='dotenv run python -m ipdb'
-alias drt='dotenv -f .env-test run pytest'
-alias drti='dotenv -f .env-test run pytest --pdb'
-alias drtx='dotenv -f .env-test run pytest -svvx'
+# alias dr='dotenv run'
+# alias dri='dotenv run ipython -i'
+# alias drp='dotenv run python'
+# alias drip='dotenv run python -m ipdb'
+# alias drt='dotenv -f .env-test run pytest'
+# alias drti='dotenv -f .env-test run pytest --pdb'
+# alias drtx='dotenv -f .env-test run pytest -svvx'
 
 alias pirr='pip install -r requirements.txt'
 
-alias po='poetry'
-alias pr='poetry run'
-alias pri='poetry run ipython '
-alias prp='poetry run python3'
+# alias po='poetry'
+# alias pr='poetry run'
+# alias pri='poetry run ipython '
+# alias prp='poetry run python3'
+
+alias pqt='parquet-tools'
+ 
