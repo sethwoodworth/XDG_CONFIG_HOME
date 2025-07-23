@@ -1,0 +1,5 @@
+
+awsgo () {
+  resp = "$( aws sts get-session-token --serial-number 'arn:aws:iam::211415456098:mfa/swoodworth' --token-code $1 )";
+  echo "$resp";
+}
