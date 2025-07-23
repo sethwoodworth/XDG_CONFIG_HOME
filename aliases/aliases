@@ -12,8 +12,6 @@ source ${XDG_CONFIG_HOME}/aliases/snowflake.aliases
 source ${XDG_CONFIG_HOME}/aliases/vagrant.aliases
 source ${XDG_CONFIG_HOME}/aliases/vim.aliases
 source ${XDG_CONFIG_HOME}/aliases/airflow.aliases
-source ${XDG_CONFIG_HOME}/aliases/aws-sts.aliases
-source ${XDG_CONFIG_HOME}/aliases/kubectl.aliases
 source ${XDG_CONFIG_HOME}/aliases/search.aliases
 source ${XDG_CONFIG_HOME}/aliases/terraform.aliases
 
