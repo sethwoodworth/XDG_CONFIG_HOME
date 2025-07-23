@@ -2,7 +2,6 @@
 source ${XDG_CONFIG_HOME}/aliases/apt.aliases
 source ${XDG_CONFIG_HOME}/aliases/aws.aliases
 source ${XDG_CONFIG_HOME}/aliases/dbt.aliases
-# source ${XDG_CONFIG_HOME}/aliases/docker.aliases
 source ${XDG_CONFIG_HOME}/aliases/general.aliases
 source ${XDG_CONFIG_HOME}/aliases/git.aliases
 source ${XDG_CONFIG_HOME}/aliases/ls.aliases
@@ -15,3 +14,8 @@ source ${XDG_CONFIG_HOME}/aliases/vim.aliases
 source ${XDG_CONFIG_HOME}/aliases/airflow.aliases
 source ${XDG_CONFIG_HOME}/aliases/aws-sts.aliases
 source ${XDG_CONFIG_HOME}/aliases/kubectl.aliases
+source ${XDG_CONFIG_HOME}/aliases/search.aliases
+source ${XDG_CONFIG_HOME}/aliases/terraform.aliases
+
+# No longer using docker in favor of podman 2025-07
+#source ${XDG_CONFIG_HOME}/aliases/docker.aliases
